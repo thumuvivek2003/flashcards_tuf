@@ -9,10 +9,12 @@ function App() {
         <Router>
             <div className="App">
                 <Navigation />
-                <Routes>
+                <FlashcardList />
+                <Dashboard />
+                {/* <Routes>
                     <Route path="/" element={<FlashcardList />} />
                     <Route path="/admin" element={<Dashboard />} />
-                </Routes>
+                </Routes> */}
             </div>
         </Router>
     );

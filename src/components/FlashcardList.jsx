@@ -50,6 +50,7 @@ const FlashcardList = () => {
     }
 
     return (
+
         <div className="flashcard-container">
             <div className="FlashListloader-container">
                 <div className="FlashListloader" style={{ width: `${loaderProgress}%` }}></div>
@@ -65,6 +66,7 @@ const FlashcardList = () => {
             ) : (
                 <div>No flashcards available</div>
             )}
+            <h1>Client Side</h1>
         </div>
     );
 };

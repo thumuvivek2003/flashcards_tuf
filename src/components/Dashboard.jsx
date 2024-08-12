@@ -103,6 +103,7 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard">
+            <h1>Admin Side</h1>
             <div className="flashcards-list">
                 <h3>Flashcards List</h3>
                 <ul>
