@@ -10,15 +10,19 @@ const Flashcard = ({ flashcard }) => {
     }, [flashcard]);
 
     return (
-        <div className={`flashcard ${flipped ? 'flashcard-flip' : ''}`} onClick={() => setFlipped(!flipped)}>
-            <div className="flashcard-inner">
-                <div className="flashcard-front">
-                    {flashcard.question}
+        <div
+            className={`flip-card ${flipped ? 'flip-card-flip' : ''}`}
+            onClick={() => setFlipped(!flipped)}
+            style={{marginTop:"25px"}}
+        >
+            <div className="flip-card-inner">
+                <div className="flip-card-front">
+                    <p className="title">QUESTION</p>
+                    <p>{flashcard.question}</p>
                 </div>
-                <div className="flashcard-back">
-                    <div className='backText'>
-                        {flashcard.answer}
-                    </div>
+                <div className="flip-card-back">
+                    <p className="title">ANSWER</p>
+                    <p>{flashcard.answer}</p>
                 </div>
             </div>
         </div>
