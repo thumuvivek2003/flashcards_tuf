@@ -42,21 +42,33 @@ const Dashboard = () => {
 
     const handleEditFlashcard = (id) => {
         setLoadingAction('updating');
-        axios.put(`https://vivekthumu.me/personal/tuf/index.php?id=${id}`, editForm)
-            .then(response => {
-                const updatedFlashcards = flashcards.map(card =>
-                    card.id === id ? response.data : card
-                );
-                setFlashcards(updatedFlashcards);
-                setEditFlashcard(null);
-                setEditForm({ question: '', answer: '' });
-                setLoadingAction(null);
-            })
-            .catch(error => {
-                console.error('Error editing flashcard:', error);
-                setLoadingAction(null);
-            });
+        editForm['id'] = id;
+        setLoading(true);
+    
+        axios.put('https://vivekthumu.me/personal/tuf/index.php', new URLSearchParams(editForm).toString(), {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+        .then(response => {
+            console.log('Response:', response.data);
+            const updatedFlashcards = flashcards.map(card =>
+                card.id === id ? response.data : card
+            );
+            setFlashcards(updatedFlashcards);
+            setEditFlashcard(null);
+            setEditForm({ question: '', answer: '' });
+            setLoadingAction(null);
+        })
+        .catch(error => {
+            console.error('Error editing flashcard:', error);
+            setLoadingAction(null);
+        })
+        .finally(() => {
+            setLoading(false); // Ensure loading is stopped even if an error occurs
+        });
     };
+    
 
     const handleDeleteFlashcard = (id) => {
         setLoadingAction('deleting');
