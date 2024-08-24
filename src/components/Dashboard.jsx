@@ -92,7 +92,7 @@ const Dashboard = () => {
         return (
             <div className="loader">
                 <div className="spinner"></div>
-                <p>{loadingAction ? `Processing ${loadingAction}...` : 'Loading from striver...'}</p>
+                <p>{loadingAction ? `Processing ${loadingAction}...` : 'Loading from vivekthumu.me backend...'}</p>
             </div>
         );
     }
